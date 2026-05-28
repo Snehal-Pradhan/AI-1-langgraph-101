@@ -1,0 +1,17 @@
+[project]
+name = "mywork"
+version = "0.1.0"
+description = "My LangGraph workshop work"
+requires-python = ">=3.11"
+dependencies = [
+    "langchain>=1.0.1",
+    "langchain-google-genai>=2.1.0",
+    "langgraph>=1.0.1",
+    "python-dotenv>=1.2.2",
+    "ipython>=9.6.0",
+    "requests>=2.32.5",
+    "sqlalchemy>=2.0.0",
+]
+
+[tool.setuptools]
+packages = ["utils"]

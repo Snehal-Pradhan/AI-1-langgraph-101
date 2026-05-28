@@ -25,7 +25,7 @@ from langchain.chat_models import init_chat_model
 # model = init_chat_model("openai:gpt-4.1-mini")
 
 # Use Anthropic by default
-model = init_chat_model("anthropic:claude-haiku-4-5")
+# model = init_chat_model("anthropic:claude-haiku-4-5")
 
 
 # ---- Azure OpenAI ---------------------------------------------------------
@@ -77,18 +77,18 @@ model = init_chat_model("anthropic:claude-haiku-4-5")
 # Make sure your Vertex AI credentials are set up and GOOGLE_APPLICATION_CREDENTIALS
 # points to the JSON file.
 
-# import os
-# from pathlib import Path
-# from langchain.chat_models import init_chat_model
+import os
+from pathlib import Path
+from langchain.chat_models import init_chat_model
 
-# # Resolve project root and load .env (utils/ -> project root is one level up)
-# project_root = Path(__file__).resolve().parent.parent
-# load_dotenv(dotenv_path=project_root / ".env", override=True)
+# Resolve project root and load .env (utils/ -> project root is one level up)
+project_root = Path(__file__).resolve().parent.parent
+load_dotenv(dotenv_path=project_root / ".env", override=True)
 
-# # Make the credentials path absolute if it was given as a relative path
-# if "GOOGLE_APPLICATION_CREDENTIALS" in os.environ:
-#     cred_path = os.environ["GOOGLE_APPLICATION_CREDENTIALS"]
-#     if not os.path.isabs(cred_path):
-#         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(project_root / cred_path.lstrip("./"))
+# Make the credentials path absolute if it was given as a relative path
+if "GOOGLE_APPLICATION_CREDENTIALS" in os.environ:
+    cred_path = os.environ["GOOGLE_APPLICATION_CREDENTIALS"]
+    if not os.path.isabs(cred_path):
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(project_root / cred_path.lstrip("./"))
 
-# model = init_chat_model("google_vertexai:gemini-2.5-flash")
+model = init_chat_model("google_vertexai:gemini-2.5-flash")
